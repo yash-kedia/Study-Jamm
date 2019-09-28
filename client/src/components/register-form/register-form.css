@@ -1,0 +1,129 @@
+.register-photo {
+    background: #e8e8e8;
+    padding: 80px 0;
+  }
+  
+  .register-photo .image-holder {
+    display: table-cell;
+    width: auto;
+    background: url("./../../assets/img/meeting.jpg");
+    background-size: cover;
+  }
+  
+  .register-photo .form-container {
+    display: table;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  }
+  
+  .register-photo form {
+    display: table-cell;
+    width: 400px;
+    background-color: #ffffff;
+    padding: 40px 60px;
+    color: #505e6c;
+  }
+  
+  @media (max-width:991px) {
+    .register-photo form {
+      padding: 40px;
+    }
+  }
+  
+  .register-photo form h2 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  
+  .register-photo form .form-control {
+    background: #e8e8e8;
+    border: none;
+    border-bottom: 1px solid #dfe7f1;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    padding-left: 10px;
+    text-indent: 6px;
+    height: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .register-photo form .form-check {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  
+  .register-photo form .btn-primary {
+    background: #ff914d;
+    border: none;
+    border-radius: 4px;
+    padding: 11px;
+    box-shadow: none;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-shadow: none;
+    outline: none !important;
+    width: 100%;
+  }
+
+  .btn-block{
+      color: #fff;
+  }
+  
+  .register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+    background: #ff914d;
+  }
+  
+  .register-photo form .btn-primary:active {
+    transform: translateY(1px);
+  }
+  
+  .register-photo form .already {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #6f7a85;
+    opacity: 0.9;
+    text-decoration: none;
+  }
+ 
+.linkedIn{
+  margin-top: 20px;
+}
+
+.btn-linkedin {
+  background: #0E76A8;
+  border-radius: 4px;
+  color: #fff;
+  width: 100%;
+}
+
+.btn-linkedin i{
+  border-right: 1px solid #fff;
+  padding-right: 30px;
+  padding-left: 5px;
+  margin-right: 10px;
+}
+
+.btn-linkedin:link, .btn-linkedin:visited {
+  color: #fff;
+}
+
+.btn-linkedin:active, .btn-linkedin:hover {
+  background: #084461;
+  color: #fff;
+  text-decoration: none;
+}  
+
+p.already{
+  margin-top: 10px;
+  font-size: 18px !important; 
+}
+
+  
+  
