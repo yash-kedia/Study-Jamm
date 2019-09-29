@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './register-form.css';
 
 class Registerform extends Component{
@@ -38,7 +39,9 @@ class Registerform extends Component{
         }
         
         console.log(user);
-    
+        axios.post("user/register", user).then(res => {
+            console.log(res);
+        });
     }
 
     render(){

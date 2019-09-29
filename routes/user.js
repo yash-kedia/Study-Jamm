@@ -6,20 +6,35 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 router.post('/register', (req, res, next) => {
-    let user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    });
 
-    User.addUser(user, (err, user) => {
-        if(err){
-            console.log(err);
+    let emailId = req.body.email;
+
+    User.getUserByEmail(emailId, (err, su) => {
+        if(err) throw err;
+        if(!su){
+            let user = new User({
+                name: req.body.name,
+                email: req.body.email,
+                password: req.body.password
+            });
+            
+            User.addUser(user, (err, user) => {
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    return res.json({success: true, msg: 'Account creation successfull.'});
+                    console.log("Added");
+                }
+            });
+
         }
         else{
-            console.log("Added");
+            console.log("User already exsists.");
         }
-    });
+        
+    })
+    
 });
 
 router.post('/authenticate', (req, res) => {
@@ -35,13 +50,9 @@ router.post('/authenticate', (req, res) => {
         User.comparePassword(password, user.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch){
-                const token = jwt.sign(user, 'secret', {
-                    expiresIn: 604800
-                });
 
                 res.json({
                     success: true,
-                    token: 'JWT '+ token,
                     user: {
                         id: user._id,
                         name: user.name,

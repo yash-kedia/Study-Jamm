@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './login-form.css';
 import logo from './../../assets/img/STUDY JAMM.png'
 
@@ -28,8 +29,9 @@ class Loginform extends Component{
             email: this.state.email,
             password: this.state.password
         }
-        
-        console.log(user);
+        axios.post("user/authenticate", user).then(res => {
+            console.log(res.data);
+        });
     
     }
 
