@@ -27,3 +27,36 @@ app.use('/user', user);
 app.listen(port, () => {
     console.log("Server is up");
 });
+
+/*  ===============================================
+    ===============================================
+    ===============================================    */ 
+/*const readXlsxFile = require('read-excel-file/node');
+    
+const User = require('./models/User');
+
+readXlsxFile('./databse.xlsx').then((rows) => {
+  rows.forEach(row => {
+    let user = new User({
+        name: row[2],
+        email: row[1],
+        password: row[3],
+        skills: row[4].split(', '),
+        location: {
+            lat: row[5],
+            long: row[6]
+        }
+    });
+    User.addUser(user, (err, user) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log("Added");
+        }
+    });
+  });
+})
+*/
+
+

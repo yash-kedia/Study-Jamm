@@ -1,0 +1,16 @@
+.SearchBar{
+    margin-top: 2em;
+    border-radius: 25px;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.search{
+    border-radius: 25px;
+    padding-left: 25px;
+}
+
+.maps{
+    height: 500px;
+    width: 100%;
+}

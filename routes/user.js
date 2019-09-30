@@ -31,10 +31,10 @@ router.post('/register', (req, res, next) => {
         }
         else{
             console.log("User already exsists.");
+            return res.json({success: false, msg: 'User already exsists.'});
         }
         
-    })
-    
+    });    
 });
 
 router.post('/authenticate', (req, res) => {
