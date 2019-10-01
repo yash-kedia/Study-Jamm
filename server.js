@@ -31,7 +31,8 @@ app.listen(port, () => {
 /*  ===============================================
     ===============================================
     ===============================================    */ 
-/*const readXlsxFile = require('read-excel-file/node');
+/*
+const readXlsxFile = require('read-excel-file/node');
     
 const User = require('./models/User');
 
@@ -43,8 +44,8 @@ readXlsxFile('./databse.xlsx').then((rows) => {
         password: row[3],
         skills: row[4].split(', '),
         location: {
-            lat: row[5],
-            long: row[6]
+            type: "Point",
+            coordinates: [row[6], row[5]]
         }
     });
     User.addUser(user, (err, user) => {
@@ -56,7 +57,25 @@ readXlsxFile('./databse.xlsx').then((rows) => {
         }
     });
   });
-})
-*/
+})*/
 
 
+const User = require('./models/User');
+
+User.find({
+    location: {
+        $near: {
+            $geometry: {
+                type: "Point",
+                coordinates: [77.209877, 28.57288]
+            },
+            $maxDistance: 1000
+        }
+    },
+    skills: {
+        $all: ['C', 'HTML']
+    }
+   }).find((error, results) => {
+    if (error) console.log(error);
+    console.log(results);
+   });

@@ -19,15 +19,14 @@ const UserSchema = new Schema({
         type: String
     }],
     location: {
-        lat: {
-            type: Number
+        type: {
+            type: String
         },
-        long: {
-            type: Number
-        }
+        coordinates: []
     }
 });
 
+UserSchema.index({ location: "2dsphere" });
 module.exports = User = mongoose.model('Users', UserSchema);
 
 module.exports.getUserById = (id, callback) => {
