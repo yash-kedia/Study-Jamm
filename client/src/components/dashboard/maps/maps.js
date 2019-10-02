@@ -53,7 +53,7 @@ class Map extends Component {
 				</div>
             	<div className="maps">
 					<GoogleMap
-						bootstrapURLKeys={{ key: 'AIzaSyA_XYBBPBeFJEcnyQvQbPtysESUscmkJKc' }}
+						bootstrapURLKeys={{ key: '' }}
 						center={{ lat: 5.6219868, lng: -0.1733074 }}
 						zoom={14}
 					>
