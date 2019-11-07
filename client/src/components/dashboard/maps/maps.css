@@ -1,8 +1,9 @@
 .SearchBar{
-    margin-top: 2em;
+    margin-top: 10em;
     border-radius: 25px;
-    padding-left: 30%;
-    padding-right: 30%;
+    width: 50%;
+    /*padding-left: 30%;
+    padding-right: 30%;*/
 }
 
 .search{
@@ -13,4 +14,8 @@
 .maps{
     height: 500px;
     width: 100%;
+}
+
+.dmeo{
+    border-radius: 25px;
 }

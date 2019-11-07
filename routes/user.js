@@ -71,7 +71,30 @@ router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res
 });
 
 router.post('/maps', (req, res) => {
+    //console.log(req.body)
+    var skills = req.body.skills;
+    const userLocation = req.body.coordinates;
+    //console.log(skills.split(','))
+    User.find({
+        location: {
+            $near: {
+                $geometry: {
+                    type: "Point",
+                    coordinates: userLocation
+                },
+                $maxDistance: 100000
+            }
+        },
+        skills: {
+            $all: skills.split(',')
+        }
+       }).find((error, results) => {
+        console.log(results);    
+        return res.json({success: true, msg: '', result: results});
+            
+    });
     
 });
+
 
 module.exports = router;

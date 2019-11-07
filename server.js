@@ -59,7 +59,7 @@ readXlsxFile('./databse.xlsx').then((rows) => {
   });
 })*/
 
-
+/*
 const User = require('./models/User');
 
 User.find({
@@ -79,3 +79,4 @@ User.find({
     if (error) console.log(error);
     console.log(results);
    });
+*/
