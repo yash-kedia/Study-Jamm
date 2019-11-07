@@ -153,4 +153,8 @@ class Maps extends Component {
       }
     }
 
+<<<<<<< HEAD
 export default Maps;
+=======
+    export default Map;
+>>>>>>> 16dd17e8ab847462e611101c46ccaa3fdff43cf0
