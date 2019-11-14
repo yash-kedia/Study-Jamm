@@ -5,16 +5,15 @@ import './homepage.css';
 import Jai from './img/person1.jpg';
 import Aryan from './img/person2.jpg';
 import Yash from './img/person3.jpg';
-
+import Navbar from './../navbar/navbar';
 import logo from './../../assets/img/STUDY JAMM.png';
-
 
 class Homepage extends Component{
 
     render(){
         return(
             <div>
-                
+  <Navbar />                
 
   <section id="showcase" className="py-5">
     <div className="primary-overlay text-white">

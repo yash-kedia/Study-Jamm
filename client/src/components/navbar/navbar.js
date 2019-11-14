@@ -11,9 +11,9 @@ class Navbar extends Component{
             <div>
                 <nav className="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
     <div className="container">
-      <a href="#home" className="navbar-brand">
+      <Link to="/" className="navbar-brand">
         <img src={logo} />
-      </a>
+      </Link>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">

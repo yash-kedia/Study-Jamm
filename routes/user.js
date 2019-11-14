@@ -74,6 +74,9 @@ router.post('/maps', (req, res) => {
     //console.log(req.body)
     var skills = req.body.skills;
     const userLocation = req.body.coordinates;
+    const dist = req.body.radius || 20;
+
+    console.log(userLocation);
     //console.log(skills.split(','))
     User.find({
         location: {
@@ -82,15 +85,20 @@ router.post('/maps', (req, res) => {
                     type: "Point",
                     coordinates: userLocation
                 },
-                $maxDistance: 100000
+                $maxDistance: dist
             }
         },
         skills: {
             $all: skills.split(',')
         }
        }).find((error, results) => {
-        console.log(results);    
-        return res.json({success: true, msg: '', result: results});
+            if(results){
+                console.log(results.splice(0,1));    
+                return res.json({success: true, msg: '', result: results});
+            }
+            else{
+                return res.json({success: true, msg: 'No users found'});
+            }
             
     });
     

@@ -1,13 +1,26 @@
 .SearchBar{
+    margin-left: 17%;
     margin-top: 10em;
-    border-radius: 25px;
-    width: 50%;
+    /*border-radius: 25px;*/
+    width: 100%;
+    padding-left: 10em;
+    padding-right: 10em;
     /*padding-left: 30%;
     padding-right: 30%;*/
 }
 
+
+@media only screen and (max-width: 400px) {
+    .SearchBar{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+}
+
 .search{
-    border-radius: 25px;
+    max-width: 20%;
+    margin-left: 20px;
+    /*border-radius: 25px;*/
     padding-left: 25px;
 }
 
@@ -16,6 +29,30 @@
     width: 100%;
 }
 
+.to_set_margin{
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
 .dmeo{
-    border-radius: 25px;
+    /*border-radius: 25px;*/
+    margin-left: 20px;
+    padding: 3px;
+}
+
+.fa-comment-alt{
+    color: #ff4500;
+}
+
+.color_match{
+    color: #ff4500;
+}
+
+#list{
+    overflow-y: scroll;
+    height: 500px !important;
+}
+
+#list::-webkit-scrollbar{ 
+    width: 0 !important; 
 }

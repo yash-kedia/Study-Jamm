@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './login-form.css';
-import logo from './../../assets/img/STUDY JAMM.png'
+import logo from './../../assets/img/STUDY JAMM.png';
+import Navbar from './../navbar/navbar';
 
 class Loginform extends Component{
 
@@ -36,6 +37,8 @@ class Loginform extends Component{
 
     render(){
         return(
+            <div>
+            <Navbar />
             <div className="login-clean">
                 <form method="post" onSubmit={this.submitData}>
                     <div className="illustration">
@@ -58,6 +61,7 @@ class Loginform extends Component{
                         </a>
                     </div>
                 </form>
+            </div>
             </div>
         );
     }

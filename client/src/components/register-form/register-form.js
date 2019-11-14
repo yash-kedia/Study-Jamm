@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './register-form.css';
 import { Redirect } from 'react-router-dom';
+import Navbar from './../navbar/navbar';
+import {Route, Link} from 'react-router-dom';
 
 class Registerform extends Component{
 
@@ -47,6 +49,9 @@ class Registerform extends Component{
 
     render(){
         return(
+            <div>
+                <Navbar />
+            
             <div className="register-photo">
                 <div className="form-container">
                     <div className="image-holder"></div>
@@ -74,7 +79,7 @@ class Registerform extends Component{
                         <div className="form-group">
                             <input type="submit" className="btn btn-primary btn-block" value="Sign Up" />
                         </div>
-                        <a className="already" href="#">You already have an account? Login here.</a>
+                        <Link className="already" to="/login">You already have an account? Login here.</Link>
                         <p className="already">Or</p>
                         <div className="form-group linkedIn">
                             <a href="#" title="LinkedIn" className="btn btn-linkedin btn-block">
@@ -83,6 +88,7 @@ class Registerform extends Component{
                         </div>
                     </form>
                 </div>
+            </div>
             </div>
         );
     }
