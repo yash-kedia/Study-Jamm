@@ -1,4 +1,4 @@
 .skills{
-    margin: 3px;
-    white-space: nowrap;
+    margin: 3px !important;
+    white-space: nowrap !important;
 }
