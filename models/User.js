@@ -23,6 +23,19 @@ const UserSchema = new Schema({
             type: String
         },
         coordinates: []
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    twitterLink: {
+        type: String
+    },
+    linkedInLink: {
+        type: String
+    },
+    facebookLink: {
+        type: String
     }
 });
 

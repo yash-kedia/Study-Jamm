@@ -10,8 +10,11 @@ import 'ol/ol.css';
 import 'antd/dist/antd.css';
 /*import './react-geo.css';
 */
+import markerImg from './marker.png';
 import OlMap from 'ol/Map';
 import OlView from 'ol/View';
+import olStyle from 'ol/style/Style';
+import olIcon from 'ol/style/Icon';
 import OlLayerTile from 'ol/layer/Tile';
 import OlSourceOsm from 'ol/source/OSM';
 import Geolocation from 'ol/Geolocation'
@@ -129,20 +132,35 @@ class Maps extends Component {
 					  fromLonLat(this.state.person[i].location.coordinates)
 					),
 				});
+				marker.setStyle(new olStyle({
+					image: new olIcon(({
+						crossOrigin: 'anonymous',
+						src: 'https://i.ibb.co/0M6mT5H/output-onlinepngtools.png'
+					}))
+				}));
 				arr[i] = marker
 
 			}
+			
 
 			//arr.splice(0,1);
 
 			this.setState({bool: true});
+
+			map.getLayers().forEach(layer => {
+				if (layer && layer.get('name') === 'Marker') {
+				  map.removeLayer(layer);
+				}
+			  });
 			
 			  var vectorSource = new Vector({
-				features: arr
+				features: arr,
+				name: 'Marker'
 				//[marker]
 			  });
 			  var markerVectorLayer = new VectorLayer({
 				source: vectorSource,
+				name: 'Marker'
 			  });
 		
 			  map.addLayer(markerVectorLayer);
