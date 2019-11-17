@@ -17,14 +17,16 @@ const Accordion = props => {
         fontSize: '14px',
     }
 
-    return (<div> <div className = "accordion-section" >
-        <button className = "accordion-title"
-        onClick = { toogleActive } />
-        <p style = { titleStyle } > { props.title } </p>
-         <span className = { active ? 'accordion-icon rotate' : 'accordion-icon' } />
-    </div>
-        <div ref = { contentRef } className = "accordion-content" >
-        { props.children } </div>
+    return (
+        <div> 
+            <div className = "accordion-section" >
+                <button className = "accordion-title" onClick = { toogleActive } />
+                <p style = { titleStyle } > { props.title } </p>
+                <span className = { active ? 'accordion-icon rotate' : 'accordion-icon' } />
+            </div>
+            <div ref = { contentRef } className = "accordion-content" >
+                { props.children } 
+            </div>
         </div> 
     )
 }
