@@ -45,21 +45,16 @@ class Loginform extends Component{
                         <img src={logo} />
                     </div>
                     <div className="form-group">
-                        <input className="form-control" type="email" name="email" placeholder="Email" onChange={this.handleEmailChange} value={this.state.email} />
+                        <input className="form-control" type="email" name="email" placeholder="Email" required onChange={this.handleEmailChange} value={this.state.email} />
                     </div>
                     <div className="form-group">
-                        <input className="form-control" type="password" name="password" placeholder="Password" onChange={this.handlePasswordChange} value={this.state.password}/>
+                        <input className="form-control" type="password" name="password" placeholder="Password" required onChange={this.handlePasswordChange} value={this.state.password}/>
                     </div>
                     <div className="form-group">
                         <input className="btn btn-primary btn-block" value="Log In" type="submit" />
                     </div>
                     <a className="forgot" href="#">Forgot your email or password?</a>
-                    <p className="forgot">Or</p>
-                    <div className="form-group linkedIn">
-                        <a href="#" title="LinkedIn" className="btn btn-linkedin btn-block">
-                            <i className="fa fa-linkedin fa-fw"></i> Login with LinkedIn
-                        </a>
-                    </div>
+                    
                 </form>
             </div>
             </div>

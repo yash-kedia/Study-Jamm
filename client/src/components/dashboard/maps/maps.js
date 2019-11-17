@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import GoogleMap from 'google-map-react';
 import Marker from './marker';
+import NavbarProfile from './navbarprofile';
 import Person from './Person';
 import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
@@ -178,6 +179,9 @@ class Maps extends Component {
 		});
 
         return (
+			<div>
+			<NavbarProfile></NavbarProfile>
+
           	<div className="to_set_margin">
 			  	<div className="text-center">
 
@@ -223,6 +227,7 @@ class Maps extends Component {
 						
 				</div>
             	
+			</div>
 			</div>
         )
       }

@@ -1,4 +1,87 @@
-.skills{
-    margin: 3px !important;
-    white-space: nowrap !important;
-}
+    /**
+* ----------------------------------------------
+* Demo styles
+* ----------------------------------------------
+**/
+    
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #f4f4f4;
+        background-clip: border-box;
+        border-radius: .25rem;
+        border: none;
+    }
+    
+    .skills {
+        margin: 2px !important;
+        word-wrap: break-word;
+        text-emphasis: 25em;
+        background-color: #f4f4f4;
+        font-weight: 300;
+    }
+    
+    .accordion {
+        border: none !important;
+        border-radius: 20px;
+        box-sizing: border-box;
+        margin: 5px !important;
+    }
+    
+    .accordion__item+.accordion__item {
+        border-top: 1px solid red;
+        margin: 5px !important;
+        white-space: nowrap !important;
+    }
+    
+    .accordion__button {
+        background-color: sandybrown;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        margin: 3px !important;
+        white-space: nowrap !important;
+        width: 100%;
+        text-align: left;
+        margin: 3px !important;
+        white-space: nowrap !important;
+        border: none;
+        scroll: "no";
+    }
+    
+    .accordion__button:before {
+        display: inline-block;
+        content: '';
+        height: 10px;
+        width: 10px;
+        margin-right: 12px;
+        border-bottom: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        transform: rotate(-45deg);
+    }
+    
+    .accordion__button[aria-expanded='true']::before,
+    .accordion__button[aria-selected='true']::before {
+        transform: rotate(45deg);
+    }
+    
+    .accordion__panel {
+        background-color: #f4f4f4;
+        padding: 19px;
+        animation: fadein 0.35s ease-in;
+    }
+    /* -------------------------------------------------- */
+    /* ---------------- Animation part ------------------ */
+    /* -------------------------------------------------- */
+    
+    @keyframes fadein {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
