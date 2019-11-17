@@ -13,7 +13,10 @@ class Registerform extends Component{
             name: '',
             email: '',
             password: '',
-            passrep: ''
+            passrep: '',
+            description: '',
+            facebookUrl: '',
+            linkedInUrl: ''
         }
     }
 
@@ -33,12 +36,27 @@ class Registerform extends Component{
         this.setState({passrep: e.target.value});
     }
 
+    handleDescriptionChange = (e) => {
+        this.setState({description: e.target.value});
+    }
+
+    handleFacebookChange = (e) => {
+        this.setState({facebookUrl: e.target.value});
+    }
+
+    handleLinkedInChange = (e) => {
+        this.setState({linkedInUrl: e.target.value});
+    }
+
     submitData = (e) => {
         e.preventDefault();
         const user = {
             name: this.state.name,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            description: this.state.description,
+            facebookUrl: this.state.facebookUrl,
+            linkedInUrl: this.state.linkedInUrl
         }
         
         console.log(user);
@@ -58,17 +76,27 @@ class Registerform extends Component{
                     <form onSubmit={this.submitData}>
                         <h2 className="text-center"><strong>Create</strong> an account.</h2>
                         <div className="form-group">
-                            <input className="form-control" type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} />
+                            <input className="form-control" type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} required />
                         </div>
                         <div className="form-group">
-                            <input className="form-control" type="text" name="name" placeholder="Name"  onChange={this.handleNameChange} />
+                            <input className="form-control" type="text" name="name" placeholder="Name"  onChange={this.handleNameChange} required/>
                         </div>
                         <div className="form-group">
-                            <input className="form-control" type="password" name="password" placeholder="Password"  onChange={this.handlePasswordChange} />
+                            <input className="form-control" type="password" name="password" placeholder="Password"  onChange={this.handlePasswordChange} required/>
                         </div>
                         <div className="form-group">
-                            <input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"  onChange={this.handlePassRepChange} />
+                            <input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"  onChange={this.handlePassRepChange} required/>
                         </div>
+                        <div className="form-group">
+                            <input className="form-control" type="text" name="description" placeholder="Describe Yourself"  onChange={this.handleDescriptionChange} required/>
+                        </div>
+                        <div className="form-group">
+                            <input className="form-control" type="text" name="LinkedIn" placeholder="LinkedIn Profile Link" onChange={this.handleLinkedInChange} />
+                        </div>
+                        <div className="form-group">
+                            <input className="form-control" type="text" name="facebook" placeholder="Facebook Profile Link"  onChange={this.handleFacebookChange} required/>
+                        </div>
+                        
                         <div className="form-group">
                             <div className="form-check">
                                 <label className="form-check-label">
@@ -80,12 +108,7 @@ class Registerform extends Component{
                             <input type="submit" className="btn btn-primary btn-block" value="Sign Up" />
                         </div>
                         <Link className="already" to="/login">You already have an account? Login here.</Link>
-                        <p className="already">Or</p>
-                        <div className="form-group linkedIn">
-                            <a href="#" title="LinkedIn" className="btn btn-linkedin btn-block">
-                                <i className="fa fa-linkedin fa-fw"></i> Register  with  LinkedIn
-                            </a>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

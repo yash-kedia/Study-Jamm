@@ -15,7 +15,10 @@ router.post('/register', (req, res, next) => {
             let user = new User({
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.password
+                password: req.body.password,
+                description: req.body.description,
+                linkedInLink: req.body.linkedInUrl,
+                facebookLink: req.body.facebookUrl
             });
             
             User.addUser(user, (err, user) => {
