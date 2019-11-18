@@ -3,6 +3,7 @@ import axios from 'axios';
 import './login-form.css';
 import logo from './../../assets/img/STUDY JAMM.png';
 import Navbar from './../navbar/navbar';
+import store from 'store';
 
 class Loginform extends Component{
 
@@ -13,6 +14,7 @@ class Loginform extends Component{
             email: '',
             password: ''
         }
+
     }
     
     handlePasswordChange = (e) => {
@@ -30,7 +32,13 @@ class Loginform extends Component{
             password: this.state.password
         }
         axios.post("user/authenticate", user).then(res => {
+            
+            const {history} = this.props;
             console.log(res.data);
+            if(res.data.success){
+                store.set('loggedIn', true);
+                history.push('/maps');
+            }
         });
     
     }

@@ -4,6 +4,7 @@ import './register-form.css';
 import { Redirect } from 'react-router-dom';
 import Navbar from './../navbar/navbar';
 import {Route, Link} from 'react-router-dom';
+import store from 'store';
 
 class Registerform extends Component{
 
@@ -61,7 +62,12 @@ class Registerform extends Component{
         
         console.log(user);
         axios.post("user/register", user).then(res => {
-            console.log(res);
+            const {history} = this.props;
+            console.log(res.data);
+            if(res.data.success){
+                store.set('loggedIn', true);
+                history.push('/maps');
+            }
         });
     }
 

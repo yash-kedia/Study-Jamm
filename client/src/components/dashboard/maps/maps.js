@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 import GoogleMap from 'google-map-react';
 import Marker from './marker';
 import NavbarProfile from './navbarprofile';
@@ -26,10 +27,17 @@ import {Vector} from 'ol/source';
 import {fromLonLat} from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
 
-
+import store from 'store';
 import {
   MapComponent
 } from '@terrestris/react-geo';
+
+
+
+				
+	const isLoggedIn = () => !!store.get('loggedIn');
+	
+
 
 const layer = new OlLayerTile({
   source: new OlSourceOsm()
@@ -178,8 +186,13 @@ class Maps extends Component {
 			return (<Person name={per.name} skills={per.skills} />) 
 		});
 
+		if (!isLoggedIn()) {
+			return(<Redirect to="/login" />);	
+		}
+
         return (
 			<div>
+
 			<NavbarProfile></NavbarProfile>
 
           	<div className="to_set_margin">
