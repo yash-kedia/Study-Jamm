@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import reactDOM from 'react-dom'
+import reactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
+
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import Navbar from './../../navbar/navbar';
 import './person.css';
@@ -11,6 +13,8 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
+import { GitHub, LinkedIn, Skype } from 'react-profiles';
+
 
 import 'react-accessible-accordion/dist/fancy-example.css';
 
@@ -42,27 +46,39 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 		</div>
 	</div>
 </div>)}> */
+
+//var url = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=email@domain.com&tf=1";
+
 const post = (props) => ( 
-    <Accordion allowZeroExpanded={true}>
+    <Accordion allowZeroExpanded = { true }>
         <AccordionItem>
             <AccordionItemHeading>
-                <AccordionItemButton> 
-                    { props.name } 
-                </AccordionItemButton>
+                <AccordionItemButton > { props.name } </AccordionItemButton> 
             </AccordionItemHeading> 
-            <AccordionItemPanel> 
+            <AccordionItemPanel>
                 <div className = "card mb-3" key = { props._id } id = { props._id } >
-                    <div className = "skills" >
-                        <p> heyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee </p> < br / > 
-                        {props.skills.map((item) => ( 
-                            <span className = "skills" > 
-                                { item } 
-                            </span>
+                    <div className = "skills">
+                        <p> {props.descrp} </p> <br />
+                        <p> <strong> My skills are: </strong></p> 
+                        {
+                            props.skills.map((item) => ( 
+                                <span className = "skills"> { item } </span>
                             ))
                         } 
+                        <br />
+                        <br />
+                        <p> <strong> Connect with me here: </strong> </p> 
+                        {
+                            props.linkedIn && (<div><br /> <LinkedIn username = {props.linkedIn} /> </div>)
+                        }
+                        
+                        <br /> 
+                        <a href={props.url} target="_blank">
+                            <Button variant = "primary" className="back"> Email me </Button> 
+                        </a>
                     </div> 
                 </div> 
-            </AccordionItemPanel> 
+            </AccordionItemPanel>  
         </AccordionItem> 
     </Accordion>
 

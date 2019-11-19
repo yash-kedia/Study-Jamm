@@ -4,6 +4,11 @@
 * ----------------------------------------------
 **/
     
+    .back{
+        background-color: #ff4500 !important;
+        border: none !important;
+    }
+
     .card {
         position: relative;
         display: flex;

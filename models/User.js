@@ -24,14 +24,14 @@ const UserSchema = new Schema({
         },
         coordinates: []
     },
+    rating: {
+        type: Number
+    },
     description: {
         type: String,
         required: true
     },
     linkedInLink: {
-        type: String
-    },
-    facebookLink: {
         type: String
     }
 });

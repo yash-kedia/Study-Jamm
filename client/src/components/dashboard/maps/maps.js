@@ -7,6 +7,7 @@ import NavbarProfile from './navbarprofile';
 import Person from './Person';
 import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
 import './maps.css';
 import 'ol/ol.css';
 import 'antd/dist/antd.css';
@@ -66,7 +67,7 @@ var pos = [];
 	const map = new OlMap({
 		view: new OlView({
 		  center: center,
-		  zoom: 16,
+		  zoom: 14,
 		}),
 		layers: [layer]
 	});
@@ -76,13 +77,18 @@ var pos = [];
 
 	  //Adding a marker on the map
 
+var cent;
+
 class Maps extends Component {
 
 	constructor(props){
 		super(props);
 
 	}
-
+	
+	toggle = () => {
+		this.setState({dropdownOpen: !this.state.dropdownOpen});
+	}
 	state = {
 		person: [
 			{
@@ -90,14 +96,21 @@ class Maps extends Component {
 				name: '',
 				skills: '',
 				lat: '',
-				long: ''
+				long: '',
+				dropDownValue: ''
 			}
 		],
 		skillsSearchString: '',
 		bool: false,
 		radius: Number,
-		alert: ''
+		alert: '',
+		dropdownOpen: false
 		//skillsSearchArray: []
+	}
+
+	changeValue = (e) => {
+		this.setState({dropDownValue: e.currentTarget.textContent});
+		console.log(e.currentTarget.textContent);
 	}
 
 	searchBarHandleChange = (e) => {
@@ -119,7 +132,8 @@ class Maps extends Component {
 		const query = {
 			coordinates: pos,
 			radius: this.state.radius,
-			skills: this.state.skillsSearchString
+			skills: this.state.skillsSearchString,
+			role: this.state.dropDownValue
 		}
 		
 		axios.post('user/maps', query).then(res => {
@@ -151,7 +165,7 @@ class Maps extends Component {
 
 			}
 			
-
+			cent = arr[0];
 			//arr.splice(0,1);
 
 			this.setState({bool: true});
@@ -171,8 +185,14 @@ class Maps extends Component {
 				source: vectorSource,
 				name: 'Marker'
 			  });
+
+			  /*var userPos = new VectorLayer({
+				  source: pos,
+				  name: 'pos'
+			  });*/
 		
 			  map.addLayer(markerVectorLayer);
+			  //map.addLayer(userPos); 
 			  //map.getView().setCenter(pos);
 			  console.log("Yo");
 			  console.log(pos);
@@ -183,7 +203,8 @@ class Maps extends Component {
     render() {
 
 		var person_list = this.state.person.map(per => {
-			return (<Person name={per.name} skills={per.skills} />) 
+			let url = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=" + per.email +"&tf=1";
+			return (<Person name={per.name} skills={per.skills} descrp={per.description} linkedIn={per.linkedInLink} url={url} />) 
 		});
 
 		if (!isLoggedIn()) {
@@ -201,7 +222,7 @@ class Maps extends Component {
 				<div className="SearchBar text-center">
 						<div className="form-group row text-center">
 							<Input
-								className="search col-5 input-group-button"
+								className="search col-4 input-group-button"
 								type="search"
 								name="search"
 								id="exampleSearch"
@@ -210,13 +231,23 @@ class Maps extends Component {
 							/>
 
 							<Input
-								className="search col-5 input-group-button"
+								className="search col-4 input-group-button"
 								type="search"
 								name="search"
 								id="exampleSearch"
 								placeholder="Enter the radius (in meters)"
 								onChange={this.radiusHandleChange}
 							/>
+							
+							<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="jai col-2 input-group-button">
+								<DropdownToggle caret>
+									Role
+								</DropdownToggle>
+								<DropdownMenu>
+									<DropdownItem onClick={this.changeValue}>Professional</DropdownItem>
+									<DropdownItem onClick={this.changeValue}>Student</DropdownItem>
+								</DropdownMenu>
+							</Dropdown>
 							
 							<Input type="submit" className="btn btn-primary btn-block dmeo col-2 input-group-button" value="Search" onClick={this.onSearchBarSubmitHandler} />
 							

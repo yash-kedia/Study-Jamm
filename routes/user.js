@@ -78,6 +78,7 @@ router.post('/maps', (req, res) => {
     var skills = req.body.skills;
     const userLocation = req.body.coordinates;
     const dist = req.body.radius || 20;
+    const role = req.body.role || 'Student';
 
     console.log(userLocation);
     //console.log(skills.split(','))
@@ -93,7 +94,8 @@ router.post('/maps', (req, res) => {
         },
         skills: {
             $all: skills.split(',')
-        }
+        },
+        role: role
        }).find((error, results) => {
             if(results){
                 console.log(results.splice(0,1));    

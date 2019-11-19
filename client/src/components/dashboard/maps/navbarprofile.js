@@ -26,7 +26,7 @@ class NavbarProfile extends Component{
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link to="/">Home</Link>
+            <Link to="/maps">Home</Link>
           </li>
           <li className="nav-item">
             <Link to="/profile" className="navLink">Profile</Link>

@@ -17,6 +17,16 @@
     }
 }
 
+.jai{
+    margin: 0px !important;
+    margin-left: -40px !important;
+    margin-right: -60px !important;
+}
+
+.dropdown-toggle{
+    background-color: #007bff !important;
+}
+
 .search{
     max-width: 20%;
     margin-left: 20px;
