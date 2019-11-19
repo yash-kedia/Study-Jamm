@@ -16,8 +16,8 @@ class Registerform extends Component{
             password: '',
             passrep: '',
             description: '',
-            facebookUrl: '',
-            linkedInUrl: ''
+            linkedInUrl: '',
+            role: '',
         }
     }
 
@@ -41,20 +41,20 @@ class Registerform extends Component{
         this.setState({description: e.target.value});
     }
 
-    handleFacebookChange = (e) => {
-        this.setState({facebookUrl: e.target.value});
-    }
-
     handleLinkedInChange = (e) => {
         this.setState({linkedInUrl: e.target.value});
     }
-
+    
+    handleRoleChange = (e) =>{
+        this.setState({role: e.target.value});
+    }
     submitData = (e) => {
         e.preventDefault();
         const user = {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
+            role:this.state.role,
             description: this.state.description,
             facebookUrl: this.state.facebookUrl,
             linkedInUrl: this.state.linkedInUrl
@@ -93,6 +93,7 @@ class Registerform extends Component{
                         <div className="form-group">
                             <input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"  onChange={this.handlePassRepChange} required/>
                         </div>
+                        
                         <div className="form-group">
                             <input className="form-control" type="text" name="description" placeholder="Describe Yourself"  onChange={this.handleDescriptionChange} required/>
                         </div>
@@ -100,9 +101,33 @@ class Registerform extends Component{
                             <input className="form-control" type="text" name="LinkedIn" placeholder="LinkedIn Profile Link" onChange={this.handleLinkedInChange} />
                         </div>
                         <div className="form-group">
-                            <input className="form-control" type="text" name="facebook" placeholder="Facebook Profile Link"  onChange={this.handleFacebookChange} required/>
-                        </div>
-                        
+                        <p>Choose if you are a Student or a Professional:</p>
+      
+                            <ul class="list">
+                            <li>
+                            <label>
+                                <input
+                                type="radio"
+                                value="Student"
+                                checked={this.state.role === "Student"}
+                                onChange={this.handleRoleChange}
+                                />
+                                Student
+                            </label>
+                            </li>
+                            <li>
+          
+                            <label>
+                                <input 
+                                type="radio"
+                                value="Professional"
+                                checked={this.state.role === "Professional"}
+                                onChange={this.handleRoleChange}
+                            />
+                             Professional
+                            </label>
+                            </li></ul>
+                            </div>
                         <div className="form-group">
                             <div className="form-check">
                                 <label className="form-check-label">

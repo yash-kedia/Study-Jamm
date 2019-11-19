@@ -124,6 +124,8 @@ p.already{
   margin-top: 10px;
   font-size: 18px !important; 
 }
-
+ .list{
+   list-style-type: none;
+ }
   
   
