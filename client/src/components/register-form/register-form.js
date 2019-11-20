@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Navbar from './../navbar/navbar';
 import {Route, Link} from 'react-router-dom';
 import store from 'store';
+import {geolocated} from 'react-geolocated';
 
 class Registerform extends Component{
 
@@ -18,8 +19,10 @@ class Registerform extends Component{
             description: '',
             linkedInUrl: '',
             role: '',
+            skill: ''
         }
     }
+
 
     handleEmailChange = (e) => {
         this.setState({email: e.target.value});
@@ -48,16 +51,22 @@ class Registerform extends Component{
     handleRoleChange = (e) =>{
         this.setState({role: e.target.value});
     }
+    
+    handleSkillChange = (e) =>{
+        this.setState({skill: e.target.value});
+    }
     submitData = (e) => {
         e.preventDefault();
+        //console.log(this.props.coords.latitude);
         const user = {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
             role:this.state.role,
+            skill:this.state.skill,
             description: this.state.description,
-            facebookUrl: this.state.facebookUrl,
-            linkedInUrl: this.state.linkedInUrl
+            linkedInUrl: this.state.linkedInUrl,
+            pos: [this.props.coords.longitude, this.props.coords.latitude] || [77.3715726, 28.5113011]
         }
         
         console.log(user);
@@ -96,6 +105,9 @@ class Registerform extends Component{
                         
                         <div className="form-group">
                             <input className="form-control" type="text" name="description" placeholder="Describe Yourself"  onChange={this.handleDescriptionChange} required/>
+                        </div>
+                        <div className="form-group">
+                            <input className="form-control" type="text" name="skill" placeholder="Enter your skills(use , to separate)"  onChange={this.handleSkillChange} required/>
                         </div>
                         <div className="form-group">
                             <input className="form-control" type="text" name="LinkedIn" placeholder="LinkedIn Profile Link" onChange={this.handleLinkedInChange} />
@@ -148,4 +160,9 @@ class Registerform extends Component{
     }
 }
 
-export default Registerform;
+export default geolocated({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    watchPosition: true
+})(Registerform) 

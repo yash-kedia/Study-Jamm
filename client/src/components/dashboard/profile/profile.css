@@ -1,0 +1,39 @@
+.pro {
+    font-family: sans-serif;
+    text-align: center;
+    color: #3c3939;
+    margin: 150px;
+    padding: 0;
+    position:relative;
+    background-color: white;
+  }
+  
+  .profile-card {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0, 0.5);
+  }
+  .image-container {
+    position: relative;
+  }
+  .image {
+    width: 50%;
+  }
+  
+  .info {
+    color: #4b4fe2;
+    margin-right: 16px;
+  }
+  .main-container {
+    padding: 0px;
+  }
+  .linked{
+      padding-left: 125px;
+  }
+  .title {
+    position: relative;
+  }
+  

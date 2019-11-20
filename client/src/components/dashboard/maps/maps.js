@@ -20,7 +20,7 @@ import olStyle from 'ol/style/Style';
 import olIcon from 'ol/style/Icon';
 import OlLayerTile from 'ol/layer/Tile';
 import OlSourceOsm from 'ol/source/OSM';
-import Geolocation from 'ol/Geolocation'
+import Geolocation from 'ol/Geolocation';
 
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';

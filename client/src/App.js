@@ -7,6 +7,7 @@ import RegisterForm from './components/register-form/register-form';
 import Map from './components/dashboard/maps/maps';
 import Homepage from './components/homepage/homepage';
 import './App.css';
+import Profile from './components/dashboard/profile/Profile';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" component={LoginForm} />
         <Route path="/register" component={RegisterForm} />
         <Route path="/maps" component={Map} />
+        <Route path="/profile" component={Profile} />
       </Switch>
     </div>
   );

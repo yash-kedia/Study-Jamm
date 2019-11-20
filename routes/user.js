@@ -12,13 +12,18 @@ router.post('/register', (req, res, next) => {
     User.getUserByEmail(emailId, (err, su) => {
         if(err) throw err;
         if(!su){
+            console.log(req.body);
             let user = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
                 description: req.body.description,
                 linkedInLink: req.body.linkedInUrl,
-                role: req.body.role
+                role: req.body.role,
+                location: {
+                    type: "Point",
+                    coordinates: req.body.pos
+                }
             });
             
             User.addUser(user, (err, user) => {
@@ -69,15 +74,20 @@ router.post('/authenticate', (req, res) => {
     });
 });
 
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-    res.json({user: req.user});
+router.post('/profile', (req, res) => {
+    User.findById(req.body.id).then((err, res) => {
+        if(!err){
+            return res.json({success: true, result: res});
+        }
+    });
+    //res.json({user: req.user});
 });
 
 router.post('/maps', (req, res) => {
     //console.log(req.body)
     var skills = req.body.skills;
     const userLocation = req.body.coordinates;
-    const dist = req.body.radius || 20;
+    const dist = req.body.radius || 20000;
     const role = req.body.role || 'Student';
 
     console.log(userLocation);
@@ -98,7 +108,7 @@ router.post('/maps', (req, res) => {
         role: role
        }).find((error, results) => {
             if(results){
-                console.log(results.splice(0,1));    
+                console.log(results);    
                 return res.json({success: true, msg: '', result: results});
             }
             else{
