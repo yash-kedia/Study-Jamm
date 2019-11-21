@@ -55,16 +55,16 @@ class Homepage extends Component{
         <div className="col-md-3">
           <div className="card text-center border-primary border-study mb-resp">
             <div className="card-body">
-              <h3 className="text-study">Rating System</h3>
-              <p className="text-muted">After each session, you can rate your mentor on parameters like experience and teaching methods.</p>
+              <h3 className="text-study">Role Search</h3>
+              <p className="text-muted">You can either learn from a professional or a student depending on your requirements.</p>
             </div>
           </div>
         </div>
         <div className="col-md-3">
           <div className="card text-white text-center bg-study text-white">
             <div className="card-body text-white">
-              <h3 className="text-white">Messenger</h3>
-              <p>The app provides an inbuilt mesenger to communicate with your mentor.</p>
+              <h3 className="text-white">Email</h3>
+              <p>To protect the privacy of our users, we connect the mentor with the students via mail.</p>
             </div>
           </div>
         </div>
