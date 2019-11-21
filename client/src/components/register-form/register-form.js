@@ -6,6 +6,7 @@ import Navbar from './../navbar/navbar';
 import {Route, Link} from 'react-router-dom';
 import store from 'store';
 import {geolocated} from 'react-geolocated';
+//var store = require('store');
 
 class Registerform extends Component{
 
@@ -63,18 +64,19 @@ class Registerform extends Component{
             email: this.state.email,
             password: this.state.password,
             role:this.state.role,
-            skill:this.state.skill,
+            skill:this.state.skill.replace(/\s/g, '').toLowerCase().split(','),
             description: this.state.description,
             linkedInUrl: this.state.linkedInUrl,
-            pos: [this.props.coords.longitude, this.props.coords.latitude] || [77.3715726, 28.5113011]
+            pos: [77.3715726, 28.5113011]
         }
         
-        console.log(user);
+        //console.log(user);
         axios.post("user/register", user).then(res => {
             const {history} = this.props;
             console.log(res.data);
             if(res.data.success){
                 store.set('loggedIn', true);
+                store.set('id', res.data.data._id);
                 history.push('/maps');
             }
         });

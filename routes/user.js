@@ -23,7 +23,8 @@ router.post('/register', (req, res, next) => {
                 location: {
                     type: "Point",
                     coordinates: req.body.pos
-                }
+                },
+                skills: req.body.skills
             });
             
             User.addUser(user, (err, user) => {
@@ -31,7 +32,7 @@ router.post('/register', (req, res, next) => {
                     console.log(err);
                 }
                 else{
-                    return res.json({success: true, msg: 'Account creation successfull.'});
+                    return res.json({success: true, msg: 'Account creation successfull.', data: user});
                     console.log("Added");
                 }
             });
@@ -74,11 +75,15 @@ router.post('/authenticate', (req, res) => {
     });
 });
 
-router.post('/profile', (req, res) => {
-    User.findById(req.body.id).then((err, res) => {
-        if(!err){
-            return res.json({success: true, result: res});
-        }
+router.get('/profile/:id', (req, res) => {
+    console.log("Entered");
+    //res.send(req.params.id);
+    var ty = req.params.id;
+    console.log(ty);
+    /*var id = req.params.id;*/
+    //console.log(id);
+    User.findById(ty).then((re) => {
+        res.send({data: re});
     });
     //res.json({user: req.user});
 });

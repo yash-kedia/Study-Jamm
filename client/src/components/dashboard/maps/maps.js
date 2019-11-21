@@ -132,7 +132,7 @@ class Maps extends Component {
 		const query = {
 			coordinates: pos,
 			radius: this.state.radius,
-			skills: this.state.skillsSearchString,
+			skills: this.state.skillsSearchString.replace(/\s/g, '').toLowerCase().split(','),
 			role: this.state.dropDownValue
 		}
 		
