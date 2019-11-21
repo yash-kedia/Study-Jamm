@@ -24,7 +24,7 @@ router.post('/register', (req, res, next) => {
                     type: "Point",
                     coordinates: req.body.pos
                 },
-                skills: req.body.skills
+                skills: req.body.skill
             });
             
             User.addUser(user, (err, user) => {
@@ -32,6 +32,7 @@ router.post('/register', (req, res, next) => {
                     console.log(err);
                 }
                 else{
+                    console.log(user);
                     return res.json({success: true, msg: 'Account creation successfull.', data: user});
                     console.log("Added");
                 }
@@ -108,7 +109,7 @@ router.post('/maps', (req, res) => {
             }
         },
         skills: {
-            $all: skills.split(',')
+            $all: skills
         },
         role: role
        }).find((error, results) => {

@@ -24,8 +24,8 @@ const UserSchema = new Schema({
         },
         coordinates: []
     },
-    rating: {
-        type: Number
+    role: {
+        type: String
     },
     description: {
         type: String,
