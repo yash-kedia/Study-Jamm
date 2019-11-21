@@ -112,7 +112,7 @@ class Registerform extends Component{
                             <input className="form-control" type="text" name="skill" placeholder="Enter your skills(use , to separate)"  onChange={this.handleSkillChange} required/>
                         </div>
                         <div className="form-group">
-                            <input className="form-control" type="text" name="LinkedIn" placeholder="LinkedIn Profile Link" onChange={this.handleLinkedInChange} />
+                            <input className="form-control" type="text" name="LinkedIn" placeholder="LinkedIn Username" onChange={this.handleLinkedInChange} />
                         </div>
                         <div className="form-group">
                         <p>Choose if you are a Student or a Professional:</p>
