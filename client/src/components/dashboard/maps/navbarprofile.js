@@ -28,9 +28,9 @@ class NavbarProfile extends Component{
           <li className="nav-item">
             <Link to="/maps">Home</Link>
           </li>
-          {/*<li className="nav-item">
+          <li className="nav-item">
             <Link to="/profile" className="navLink">Profile</Link>
-          </li>*/}
+          </li>
           <li className="nav-item">
             <Link to="/" className="navLink" onClick={this.handleLogout}>Logout</Link>
           </li>

@@ -62,9 +62,9 @@ class Profile extends Component{
 				</div>
                 </div>
 			<div className="main-container">
-				<p>Role : {this.state.role} </p>
-				<p>{this.state.description}</p>
-				<p>
+				<p className="Role">Role : {this.state.role} </p>
+				<p className="description">{this.state.description}</p>
+				<p className="Email">
 				<i className="fa fa-envelope" />
 				{this.state.email}
 				</p>

@@ -125,6 +125,7 @@ class Registerform extends Component{
                                 value="Student"
                                 checked={this.state.role === "Student"}
                                 onChange={this.handleRoleChange}
+                                required
                                 />
                                 Student
                             </label>
