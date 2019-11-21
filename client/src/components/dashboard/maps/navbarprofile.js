@@ -20,7 +20,7 @@ class NavbarProfile extends Component{
             <div>
                 <nav className="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
     <div className="container">
-      <Link to="/" className="navbar-brand">
+      <Link to="/maps" className="navbar-brand">
         <img src={logo} />
       </Link>
       <div className="collapse navbar-collapse" id="navbarCollapse">
